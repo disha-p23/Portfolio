@@ -2,46 +2,41 @@ const projectData = {
     jupiter: {
         title: "Intelligent Patient Discharge Assistant",
         theme: "#f59e0b",
-        
         goal: "To build a multimodal AI system that transforms complex clinical discharge summaries into accessible, patient-friendly content — breaking down medical jargon, recognising handwritten doctor notes, and generating audio summaries so patients can truly understand their own care.",
-        architecture: "The pipeline ingests patient discharge documents and applies OCR + handwriting recognition to extract doctor notes. An NLP layer (transformer-based) then simplifies clinical language into plain, easy-to-understand explanations tailored for a non-medical audience. A text-to-speech module generates audio output of the summary. Additional features include medication reminders, follow-up instruction extraction, and a Q&A interface for patient queries.",
-        tech: ["NLP", "OCR", "Hugging Face", "Text-to-Speech", "Python", "FastAPI", "Transformers", "Clinical AI"],
+        architecture: "The pipeline ingests patient discharge documents and applies OCR + handwriting recognition to extract doctor notes. An NLP layer (transformer-based) then simplifies clinical language into plain explanations. A text-to-speech module generates audio output of the summary. Additional features include medication reminders, follow-up instruction extraction, and a Q&A interface for patient queries.",
+        tech: ["NLP", "OCR", "Hugging Face", "Text-to-Speech", "Python", "FastAPI", "Transformers"],
         github: "#"
     },
     emotion: {
         title: "Emotion-Aware AI Narration System",
         theme: "#a855f7",
-        
         goal: "To develop an intelligent storytelling platform capable of dynamically shifting narrative tone, vocabulary, and pacing based on the emotional context or user's emotional state.",
-        architecture: "The system integrates real-time sentiment analysis and emotion classification using Transformer-based NLP models. The parsed emotional state acts as a conditioning parameter for a Generative Language Model, which iteratively synthesizes narrative text to align with the desired affective resonance.",
+        architecture: "Real-time sentiment analysis and emotion classification using Transformer-based NLP models. The parsed emotional state conditions a Generative Language Model, which synthesizes narrative text aligned with the detected affective state.",
         tech: ["NLP", "Generative AI", "Transformers", "Python", "Sentiment Analysis"],
         github: "#"
     },
     ulcer: {
         title: "Diabetic Foot Ulcer Classification",
         theme: "#2dd4bf",
-       
-        goal: "To build a highly accurate, clinical-grade image classification pipeline that not only detects diabetic foot ulcers but also provides model explainability to build trust among medical professionals.",
-        architecture: "Leveraging Transfer Learning with EfficientNet-B0 implemented via PyTorch. The model incorporates explainable AI (XAI) techniques like Grad-CAM++ to generate heatmaps highlighting the exact regions contributing to the classification decision. Deployed end-to-end with FastAPI and Streamlit.",
+        goal: "To build a highly accurate image classification pipeline that provides model explainability via Grad-CAM++ heatmaps — highlighting exactly which regions drive the classification decision.",
+        architecture: "Transfer Learning with EfficientNet-B0 in PyTorch. Explainability via Grad-CAM++ visual heatmaps. Automated report generation included. Deployed end-to-end with FastAPI and Streamlit.",
         tech: ["Computer Vision", "PyTorch", "EfficientNet-B0", "Grad-CAM++", "FastAPI", "Streamlit", "Deep Learning"],
         github: "https://github.com/disha-p23"
     },
     ecg: {
         title: "ECG Anomaly Detection",
         theme: "#e11d48",
-       
-        goal: "To perform continuous, autonomous monitoring of sensor-simulated heartbeat data, with the ability to instantly detect subtle morphological anomalies that may indicate cardiac arrhythmias.",
-        architecture: "A sophisticated time-series analysis pipeline processing streaming sensor signals. Utilises a Convolutional Autoencoder trained on the MIT-BIH dataset. Normal heartbeats are learned during training; anomalies are flagged during inference based on reconstruction error thresholds, achieving a false positive rate of just 1.17%.",
-        tech: ["Time-Series Analysis", "Signal Processing", "Convolutional Autoencoder", "PyTorch", "Python", "MIT-BIH Dataset"],
+        goal: "To perform continuous, autonomous monitoring of sensor-simulated heartbeat data, detecting subtle morphological anomalies that indicate cardiac arrhythmias — with a false positive rate under 2%.",
+        architecture: "A time-series pipeline processing streaming sensor signals via a Convolutional Autoencoder trained on the MIT-BIH dataset. Normal heartbeats are learned during training; anomalies are flagged at inference based on reconstruction error thresholds.",
+        tech: ["Time-Series Analysis", "Signal Processing", "Convolutional Autoencoder", "PyTorch", "Python"],
         github: "https://github.com/disha-p23"
     },
     chatbot: {
-        title: "Healthcare Transformer Chatbot",
+        title: "Custom Transformer Chatbot",
         theme: "#38bdf8",
-        
-        goal: "To achieve a fundamental understanding of Large Language Models by designing, training, and evaluating a domain-specific conversational AI from complete scratch — without proprietary APIs or pre-trained layers.",
-        architecture: "An end-to-end custom Decoder-only Transformer written in PyTorch. The pipeline includes a custom word-level tokenizer, absolute Positional Encoding, Multi-Head Self-Attention, and Feed-Forward networks. Training loss dropped from 5.06 to 0.26 on an independently curated healthcare dataset.",
-        tech: ["PyTorch", "Transformer Architecture", "Self-Attention", "Tokenization", "NLP", "Healthcare Data"],
+        goal: "To build a ground-up understanding of LLMs by designing and training a conversational AI entirely from scratch — no proprietary APIs, no pre-trained layers.",
+        architecture: "End-to-end custom Decoder-only Transformer in PyTorch — custom word-level tokenizer, absolute Positional Encoding, Multi-Head Self-Attention, and Feed-Forward networks. Training loss dropped from 5.06 to 0.26.",
+        tech: ["PyTorch", "Transformer Architecture", "Self-Attention", "Tokenization", "NLP"],
         github: "https://github.com/disha-p23"
     }
 };
@@ -51,7 +46,6 @@ const modal = document.getElementById('project-modal');
 const modalBackdrop = document.querySelector('.modal-backdrop');
 const closeBtn = document.querySelector('.close-btn');
 
-const modalIcon = document.getElementById('modal-icon');
 const modalTitle = document.getElementById('modal-title');
 const modalGoal = document.getElementById('modal-goal');
 const modalArchitecture = document.getElementById('modal-architecture');
@@ -60,7 +54,6 @@ const modalContentBox = document.querySelector('.modal-content');
 const modalGithubLink = document.getElementById('modal-github-link');
 
 function populateModal(data) {
-    modalIcon.textContent = data.icon;
     modalTitle.textContent = data.title;
     modalTitle.style.color = data.theme;
     modalGoal.textContent = data.goal;
@@ -100,8 +93,7 @@ function closeModal() {
 
 cards.forEach(card => {
     card.addEventListener('click', () => {
-        const projectId = card.getAttribute('data-project');
-        openModal(projectId);
+        openModal(card.getAttribute('data-project'));
     });
 });
 
