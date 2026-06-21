@@ -234,6 +234,36 @@ nav {
     line-height: 1.7;
 }
 
+.hero-internship-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    padding: 0.45rem 1rem;
+    border-radius: 30px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.internship-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
 /* Hero socials */
 .hero-socials {
     display: flex;
@@ -375,13 +405,13 @@ nav {
 }
 
 .research-label {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--accent);
     display: block;
     margin-bottom: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
 }
 
 .research-tags {
@@ -494,9 +524,19 @@ nav {
     gap: 1.75rem;
 }
 
-.card-icon {
-    font-size: 3rem;
+.card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.15);
     flex-shrink: 0;
+    width: 2.5rem;
+    transition: color 0.3s;
+}
+
+.project-card:hover .card-label {
+    color: var(--theme-color);
+    opacity: 0.6;
 }
 
 .card-text {
@@ -613,18 +653,15 @@ nav {
     gap: 1rem;
 }
 
-.contact-icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-}
-
-.contact-item-label {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: var(--text-sec);
+.contact-icon-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
     font-weight: 700;
-    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-sec);
+    width: 5rem;
+    flex-shrink: 0;
 }
 
 .contact-item-value {
