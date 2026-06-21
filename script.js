@@ -1,7 +1,6 @@
 const projectData = {
     emotion: {
         title: "Emotion-Aware AI Narration System",
-        icon: "🧠",
         theme: "#a855f7",
         goal: "To develop an intelligent storytelling platform capable of dynamically shifting narrative tone, vocabulary, and pacing based on the emotional context or user's emotional state.",
         architecture: "The system integrates real-time sentiment analysis and emotion classification using Transformer-based NLP models. The parsed emotional state acts as a conditioning parameter for a Generative Language Model, which iteratively synthesizes narrative text to align with the desired affective resonance.",
@@ -9,7 +8,6 @@ const projectData = {
     },
     ulcer: {
         title: "Diabetic Foot Ulcer Classification",
-        icon: "🩺",
         theme: "#2dd4bf",
         goal: "To build a highly accurate, clinical-grade image classification pipeline that not only detects diabetic foot ulcers but also provides model explainability to build trust among medical professionals.",
         architecture: "Leveraging Transfer Learning (e.g., ResNet/EfficientNet frameworks) implemented via PyTorch. Crucially, the model incorporates explainable AI (XAI) techniques like Grad-CAM to generate heatmaps highlighting the exact regions of the image contributing to the classification decision.",
@@ -17,7 +15,6 @@ const projectData = {
     },
     ecg: {
         title: "ECG Anomaly Detection",
-        icon: "❤️",
         theme: "#e11d48",
         goal: "To perform continuous, autonomous monitoring of sensor-simulated heartbeat data, with the ability to instantly detect subtle morphological anomalies that may indicate cardiac arrhythmias.",
         architecture: "A sophisticated time-series analysis pipeline processing streaming sensor signals. The model utilizes sequential deep learning architectures (like LSTMs or 1D CNNs) and Autoencoders. Normal heartbeats are 'learned' during training, and anomalies are identified during inference based on higher reconstruction errors.",
@@ -25,7 +22,6 @@ const projectData = {
     },
     chatbot: {
         title: "Custom Transformer Chatbot",
-        icon: "💬",
         theme: "#38bdf8",
         goal: "To achieve a fundamental understanding of Large Language Models by designing, training, and evaluating a domain-specific conversational AI starting from complete scratch, without invoking proprietary APIs or pre-trained layers.",
         architecture: "An end-to-end custom Decoder-only Transformer neural network written in PyTorch. The architectural pipeline includes a custom word-level tokenizer, absolute Positional Encoding, Multi-Head Self-Attention mechanisms, and Feed-Forward networks. The dataset was curated independently.",
